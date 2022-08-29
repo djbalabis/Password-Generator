@@ -1,5 +1,10 @@
 // Assignment code here
-
+var keyType = {
+  special: "!@#$%^&*()_+~\\`|}{[]:;?><,./-=",
+  number: "0123456789",
+  lowerCase: "abcdefghijklmnopqrstuvwxyz",
+  upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
