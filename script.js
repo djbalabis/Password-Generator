@@ -5,7 +5,7 @@ function generatePassword() {
   var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var characters = [];
-
+// Gathers the character input amount and character types from the user
   numberOfCharacters = prompt("How many characters would you like your password to contain?");
   if (numberOfCharacters < 8 || numberOfCharacters > 128) {
     return "Please choose a number from 8-128 characters.";
@@ -17,11 +17,11 @@ function generatePassword() {
   hasNumbers = confirm("Do you want to use numbers?");
   hasLowercase = confirm("Do you want to include lowercase characters?");
   hasUppercase = confirm("Do you want to include uppercase characters?");
-
+// Tells user to select at least one character type if selects cancel to all
   if (hasSpecial === false && hasNumbers === false && hasLowercase === false && hasUppercase === false) {
     return "Please select at least one character type.";
   }
-
+// Organizes character selection
   if (hasSpecial) {
     characters = characters.concat(special);
   }
@@ -34,10 +34,10 @@ function generatePassword() {
   if (hasUppercase) {
     characters = characters.concat(upperCase);
   }
-
-  let finalPassword = ""
-  for (let i = 0; i < numberOfCharacters; i++) {
-    let range =[Math.floor(Math.random() * characters.length)];
+// Determines randomized characters for selected length of the final password
+  var finalPassword = ""
+  for (var i = 0; i < numberOfCharacters; i++) {
+    var range =[Math.floor(Math.random() * characters.length)];
     finalPassword = finalPassword + characters[range];
   }
   return finalPassword;
